@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-nopageno
 Version:	20100511
-Release:	1
+Release:	2
 Summary:	No page numbers in LaTeX documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/nopageno
