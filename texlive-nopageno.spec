@@ -1,18 +1,12 @@
-# revision 18128
-# category Package
-# catalog-ctan /macros/latex/contrib/nopageno
-# catalog-date 2010-05-11 12:36:30 +0200
-# catalog-license lppl
-# catalog-version undef
 Name:		texlive-nopageno
-Version:	20190228
+Version:	18128
 Release:	1
 Summary:	No page numbers in LaTeX documents
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/nopageno
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/nopageno.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/nopageno.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/nopageno.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/nopageno.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -29,12 +23,12 @@ but if you just want an empty page style on all pages then this
 package will do the job.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -44,24 +38,10 @@ package will do the job.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20100511-2
-+ Revision: 754374
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20100511-1
-+ Revision: 719130
-- texlive-nopageno
-- texlive-nopageno
-- texlive-nopageno
-- texlive-nopageno
-
